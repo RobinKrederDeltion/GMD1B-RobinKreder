@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DeathZone : MonoBehaviour {
+public class Deathzone : MonoBehaviour {
 
-    public GameManager gamedatascript;
+    public GameData gameDataScript;
 
     void OnCollisionEnter(Collision c)
     {
         Destroy(c.gameObject);
-        gamedatascript.lives += -1;
-        GameObject.Find("Katapult").GetComponent<Launcher>().activeball = false;
+        gameDataScript.lives += -1;
+        GameObject.Find("Katapult").GetComponent<PinballSpawn>().activeBall = false;
     }
 }

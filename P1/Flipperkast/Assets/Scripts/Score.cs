@@ -20,7 +20,7 @@ public class Score : MonoBehaviour {
     {
         
 
-        GameObject.Find("GameManager").GetComponent<GameManager>().score += 10;
+        GameObject.Find("GameManager").GetComponent<GameData>().score += 10;
         
     }
 }
