@@ -4,25 +4,46 @@ using UnityEngine;
 
 public class Lopen : MonoBehaviour {
 
-    public Vector3 A;
-    public float ver;
+    public Vector3 move;
     public float hor;
+    public float ver;
     public float speed;
 
+    public GameObject hoofd;
+    public Vector3 body;
+    public Vector3 head;
+    public Animator anim;
 
-   
+    // Use this for initialization
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        ver = Input.GetAxis("Vertical");
         hor = Input.GetAxis("Horizontal");
+        ver = Input.GetAxis("Vertical");
 
-        A.z = ver;
-        A.x = hor;
+        transform.Translate(move * Time.deltaTime * speed);
 
+        body.y = Input.GetAxis("Mouse X");
+        head.x = -Input.GetAxis("Mouse Y");
 
-        transform.Translate(A * Time.deltaTime * speed);
+        hoofd.transform.Rotate(head);
+        transform.Rotate(body);
 
+        move.x = hor;
+        move.z = ver;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 10f;
+        }
+        else
+        {
+            speed = 5f;
+        }
     }
 }
