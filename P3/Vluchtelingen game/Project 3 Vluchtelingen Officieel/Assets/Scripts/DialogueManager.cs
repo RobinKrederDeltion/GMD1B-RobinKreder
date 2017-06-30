@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     public RaycastHit hit;
     public GameObject cam;
     public GameObject panel;
-    public GameObject canvas;
+    public GameObject managers;
     public bool convo;
     public int stringNumber;
     
@@ -60,7 +60,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (stringNumber < hit.collider.GetComponent<Dialogue>().conversation.Count)
         {
-            canvas.GetComponent<UIManager>().actieveString = hit.collider.GetComponent<Dialogue>().conversation[stringNumber];
+            managers.GetComponent<UIManager>().actieveString = hit.collider.GetComponent<Dialogue>().conversation[stringNumber];
         }
         else
         {
