@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject canvas;
     public bool convo;
     public int stringNumber;
-    public Transform player;
+    
    
     //panel wordt bij start automatisch uit gezet
     void Start()
